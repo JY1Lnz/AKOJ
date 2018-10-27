@@ -12,13 +12,7 @@ long long bei(int n)
 
 int main()
 {
-    long long a = 9;
-    for (int i = 0;i<=10;i++)
-    {
-        cout<<
-        a = a + a*bei(i);
-        cout<<a<<endl;
-    }
-
+    int a = 1000000000;
+    cout<<a<<endl;
     return 0;
 }
