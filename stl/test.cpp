@@ -1,8 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+bool cmp(int a,int b)
+{
+    if (a >= b)
+        return 1;
+    return 0;
+}
 int main()
 {
-
 /*
     vector<int> test_data;
     test_data.push_back(1);
@@ -58,8 +64,7 @@ int main()
     //test_data.erase(&test_data[0]);
     //cout<<test_data.size()<<endl;
     //cout<<test_data.empty()<<endl;
-*/
-/*
+
     //List
     list<int> list_test;
     list<int>::iterator l_it = list_test.begin();
@@ -77,14 +82,18 @@ int main()
     cout<<"------------------------"<<endl;
     for (list<int>::iterator it = list_test.begin();it != list_test.end();it++)
         cout<<*it<<' ';
-*/
+
 
 //vector ¶àÎ¬Êı×é
-    vector<int> data[3];
+    //vector<int> data[3];
     //data[0].push_back(2);
-    cout<<data[0].size()<<endl;
+    //cout<<data[0].size()<<endl;
     //cout<<*data[0].begin()<<endl;
-
+*/
+    string data[3] = {"hello","apple","banana"};
+    sort(data,data+3);
+    for (int i = 0;i < 3;i++)
+        cout<<data[i]<<endl;
 
     return 0;
 }
