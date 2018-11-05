@@ -3,42 +3,39 @@ using namespace std;
 
 int main()
 {
-    long int data[10][3] = {0};
-    int phone_type;
-    int phone_number;
-    int weizhi_0=0,weizhi_1=0,weizhi_2=0;
-    while(cin>>phone_type)
+    deque<string> data[3];
+    for (int i = 0;i<10;i++)
     {
-        if (phone_type == EOF)
-            break;
-        cin>>phone_number;
-        switch(phone_type)
-        {
-            case 0:
-                data[weizhi_0++][0] = phone_number;
-                if (weizhi_0 == 10)
-                    weizhi_0 = 0;
-                break;
-            case 1:
-                data[weizhi_1++][1] = phone_number;
-                if (weizhi_1 == 10)
-                    weizhi_1 = 0;
-                break;
-            case 2:
-                data[weizhi_2++][2] = phone_number;
-                if (weizhi_2 == 10)
-                    weizhi_2 = 0;
-                break;
-            default:
-                break;
-        }
+        data[0].push_front("0");
+        data[1].push_front("0");
+        data[2].push_front("0");
+    }
+    long long op;
+    string num;
+    while(cin>>op)
+    {
+        cin>>num;
+        data[op].push_front(num);
     }
     for (int i = 0;i<10;i++)
     {
-        for (int j = 0;j<3;j++)
-            printf("%d ",data[i][j]);
-        cout<<endl;
+        cout<<data[0].at(i)<<' ';
+        cout<<data[1].at(i)<<' ';
+        cout<<data[2].at(i)<<' '<<endl;
     }
 
     return 0;
 }
+/*
+2 18270477699
+1 10149800116
+0 19906559817
+1 16209018105
+1 16804212234
+2 19289130583
+1 17982711123
+0 10897630486
+1 11860787674
+0 15192777554
+d:\programming\°²¿ÆOJ\1164.cpp|10|error: no matching function for call to 'std::deque<std::__cxx11::basic_string<char> >::push_front(char&)'|
+*/

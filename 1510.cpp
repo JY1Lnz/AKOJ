@@ -67,11 +67,13 @@ int main()
                 break;
             guest_sum += 10;
         }
+        int host_flag = host_sum;
+        int guest_flag = guest_sum;
         if (host_sum > 21)
-            host_sum = 0;
+            host_flag = 0;
         if(guest_sum > 21)
-            guest_sum = 0;
-        if (host_sum>=guest_sum)
+            guest_flag = 0;
+        if (host_flag>=guest_flag)
             cout<<host_sum<<" vs "<<guest_sum<<" HOST WIN"<<endl;
         else
             cout<<host_sum<<" vs "<<guest_sum<<" GUEST WIN"<<endl;
