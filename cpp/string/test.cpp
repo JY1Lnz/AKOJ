@@ -3,9 +3,8 @@ using namespace std;
 
 int main()
 {
-    string s = "abcabcabc";
-    //string a = s[2];
-    cout<<s.length();
-
+    int a,b;
+    cin>>a>>b;
+    cout<<a<<endl<<b;
     return 0;
 }
