@@ -1,5 +1,7 @@
-//vec2.cpp -- methodes and iterators
-//16.8
+//16.9
+//vect3.cpp -- using STL function
+//update vect2.cpp
+//use for_each(),random_shuffle(),sort()
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -13,25 +15,46 @@ struct Review//struct storage title and rating
 //declare ShowReview function print data
 bool FillReview(Review & rr);
 void ShowReview(const Review & rr);
+//add new function
+bool operator<(const Review & r1, const Review & r2);
+bool worseThan(const Review & r1, const Review & r2);
+
+//self function -- cout<<books
 void ShowReviewAll(vector<Review> );
 
 int main()
 {
     vector<Review> books;//define a book struct vector
     Review temp;
-    while(FillReview(temp))
+
+    while(FillReview(temp))//input data
         books.push_back(temp);
-    int num = books.size();
-    if (num > 0)
+
+    //int num = books.size();
+    if (books.size() > 0)
     {
         cout<<"Thank you. You entered the following:"<<endl;
         cout<<"Rating\tBook"<<endl;
+        for_each(books.begin(),books.end(),ShowReview);//for_each  -- for each content do function"ShowReview"
 
-        ShowReviewAll(books);
+        sort(books.begin(),books.end());
+        cout<<"Sorted by title:\nRating\tBook\n";
+        for_each(books.begin(),books.end(),ShowReview);
+
+        sort(books.begin(),books.end(),worseThan);//sort by worseThan rule
+        cout<<"Sorted by rating:\nRating\tBook\n";
+        for_each(books.begin(),books.end(),ShowReview);
+
+        random_shuffle(books.begin(),books.end());
+        cout<<"After shuffling:\nRating\tBook\n";
+        for_each(books.begin(),books.end(),ShowReview);
+
+        /*
         cout<<"Reprising:\n"
             <<"Rating\tBook\n";
         vector<Review>::iterator pr;
-        ShowReviewAll(books);
+        //ShowReviewAll(books);
+        for_each(books.begin(),books.end(),ShowReview);
         vector<Review> oldlist(books); //copy constructor used
         if (num > 3)
         {
@@ -49,10 +72,12 @@ int main()
         books.swap(oldlist);
         cout<<"Swapping oldlist with books:"<<endl;
         ShowReviewAll(books);
+        */
 
     }
     else
-        cout<<"Nothing entered, nothing gained"<<endl;
+        cout<<"NO entrise"<<endl;
+    cout<<"Bye."<<endl;
 
     return 0;
 }
@@ -83,4 +108,22 @@ void ShowReviewAll(vector<Review> books)
     vector<Review>::iterator pr;
     for (pr = books.begin();pr != books.end();pr++)
         ShowReview(*pr);
+}
+
+bool operator<(const Review & r1,const Review & r2)
+{
+    if (r1.title<r2.title)
+        return true;
+    else if (r1.title == r2.title&&r1.rating < r2.rating)
+        return true;
+    else
+        return false;
+}
+
+bool worseThan(const Review & r1,const Review & r2)
+{
+    if (r1.rating < r2.rating)
+        return true;
+    else
+        return false;
 }
