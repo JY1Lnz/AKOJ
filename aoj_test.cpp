@@ -3,14 +3,12 @@ using namespace std;
 
 int main()
 {
-    vector<int> data;
-    data.push_back(1);
-    data.push_back(2);
-    data.push_back(3);
-    for (auto x : data)
-        cout<<x<<endl;
-    vector<int>::iterator it = data.begin();
-    cout<<*(it+1)<<endl;
+    int a,b;
+    a = 1;
+    b = 2;
+    cout<<a<<' '<<b<<endl;
+    swap(a,b);
+    cout<<a<<' '<<b<<endl;
 
     return 0;
 }
