@@ -3,12 +3,9 @@ using namespace std;
 
 int main()
 {
-    int a,b;
-    a = 1;
-    b = 2;
-    cout<<a<<' '<<b<<endl;
-    swap(a,b);
-    cout<<a<<' '<<b<<endl;
+    string s = "abc";
+    string a(s,0,2);
+    cout<<a<<endl;
 
     return 0;
 }

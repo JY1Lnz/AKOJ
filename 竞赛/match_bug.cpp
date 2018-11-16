@@ -14,22 +14,24 @@ struct node{
 
 int main()
 {
-    int m;
-    cin>>m;
-    //char data[m][1000];
-    struct node data[m];
-    for (int i = 0;i<m;i++)
-        cin>>data[i].s;
-    for (int i = 0;i<m;i++)
-        for (int j = 0;j<m;j++)
-            if (strlen(data[i].s)<strlen(data[j].s))
-            {
-                struct node tmp = data[j];
-                data[j] = data[i];
-                data[i] = tmp;
-            }
-    for (int i = 0;i<m;i++)
-        cout<<data[i].s<<endl;
+    char s[100];
+    while(cin>>s)
+    {
+        char b;
+        b = s[0];
+        for (int i = 0;i<strlen(s);i++)
+        {
+            if (s[i]>b)
+                b = s[i];
+        }
+        for (int i = 0;i<strlen(s);i++)
+        {
+            cout<<s[i];
+            if (s[i] == b)
+                cout<<"(max)";
+        }
+        cout<<endl;
+    }
 
     return 0;
 }

@@ -1,16 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-	vector<int> data;
-	data.push_back(1);
-	data.push_back(2);
-	data.push_back(3);
-	for (auto x:data)
-        cout<<x<<' ';
-    reverse(data.begin(),data.end());
-    cout<<endl;
-    for (auto x:data)
-        cout<<x<<' ';
 
-	return 0;
+bool cmp(int a,int b)
+{
+    if (a>b)
+        return true;
+    return false;
+}
+
+int main()
+{
+    string s;
+    cin>>s;
+    for (auto c:s)
+        cout<<c;
+
+
+    return 0;
 }

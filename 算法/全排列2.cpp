@@ -23,8 +23,8 @@ void FullPermutation(int data[],int left,int right)
 
 int main()
 {
-    int data[4] = {1,2,3,4};
-    FullPermutation(data,0,3);
+    int data[3] = {1,2,3};
+    FullPermutation(data,0,2);
 
     return 0;
 }
