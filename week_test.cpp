@@ -11,10 +11,13 @@ void aa(struct a data)
     data.x = 2;
 }
 
-int main() {
-    struct a data;
-    data.x = 1;
-    cout<<data.x<<endl;
+int main()
+{
+    char c;
+    while(cin>>c)
+    {
+        cout<<tolower(c)<<endl;
+    }
 
     return 0;
 }
