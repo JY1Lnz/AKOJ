@@ -40,10 +40,12 @@ int bfs_island(int data[101][101],int book[101][101],int & head,int & tail,int n
 
 int main()
 {
+
+    int n,m,startx,starty;
+    while(cin>>n>>m>>startx>>starty)
+    {
     int data[101][101];
     int book[101][101] = {0};
-    int n,m,startx,starty;
-    cin>>n>>m>>startx>>starty;
     for (int i = 1;i<=n;i++)
         for (int j = 1;j<=m;j++)
             cin>>data[i][j];
@@ -55,6 +57,7 @@ int main()
     book[startx][starty] = 1;
 
     cout<<bfs_island(data,book,head,tail,n,m,que)<<endl;
+    }
 
 
     return 0;

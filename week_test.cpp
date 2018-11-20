@@ -13,11 +13,17 @@ void aa(struct a data)
 
 int main()
 {
-    char c;
-    while(cin>>c)
+    char s[1000];
+    while(cin>>s)
     {
-        cout<<tolower(c)<<endl;
+        for (int i = 0;i<strlen(s);i++)
+            if (s[i]<='z'&&s[i]>='a')
+                s[i] = s[i]-32;
+        for (int i = 0;i<strlen(s);i++)
+            cout<<s[i];
+        cout<<endl;
     }
+
 
     return 0;
 }
