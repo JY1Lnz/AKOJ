@@ -1,29 +1,33 @@
-#include<bits/stdc++.h>
-using namespace std;
-int a[10005],b[10005];
-
-typedef struct a
-{
-    int x;
-};
-void aa(struct a data)
-{
-    data.x = 2;
-}
+#include <stdio.h>
 
 int main()
 {
-    char s[1000];
-    while(cin>>s)
-    {
-        for (int i = 0;i<strlen(s);i++)
-            if (s[i]<='z'&&s[i]>='a')
-                s[i] = s[i]-32;
-        for (int i = 0;i<strlen(s);i++)
-            cout<<s[i];
-        cout<<endl;
-    }
+	int m,n;
+	scanf("%d",&m);
+	while (m--)
+	{
+		int x;
+		int sum,cur;
+		scanf("%d",&n);
+		scanf("%d",&x);
+		cur = x;
+		sum = cur;
+		while (--n)
+		{
+			scanf("%d",&x);
+			cur = cur<0?x:cur+x;
+			if (sum < cur)
+			{
+				sum = cur;
+			}
+		}
+		printf("%d\n",sum);
+	}
+}
+*/
 
-
-    return 0;
+//¾«¼òËã·¨
+int main()
+{
+    i
 }

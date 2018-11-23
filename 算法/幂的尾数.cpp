@@ -1,7 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 const int h = 100;
-
+/*
+//二分思想
+//在满足条件情况下
+不断与自身相乘不够时从1开始在相乘
+样例:
+3^9
+(3*3*3*3) * (3*3*3*3) * 3
+括号内为内循环
+*/
 int main()
 {
     long long a,b;

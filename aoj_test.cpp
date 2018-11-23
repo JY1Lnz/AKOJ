@@ -1,24 +1,32 @@
-#include<iostream>
-#include<algorithm>
-#include<string>
+#include<bits/stdc++.h>
+using namespace std;
+
+unsigned long long jie(int n,int e)
+{
+    if (n == 0)
+        return 1;
+    if (n == 1)
+        return 1;
+    if (n == e)
+        return e;
+    return n*jie(n-1,e);
+}
 
 int main()
 {
-    std::string s;
-    while(getline(std::cin,s))
+    int a,b;
+    while(cin>>a>>b)
     {
-        std::cout<<s<<'\n';
-        int l = 0,r;
-        while(l<s.length())
+        if (a == b)
         {
-            int i = l+1;
-            while(s[i] != ' '&&i < s.length());
-                i++;
-            r = i;
-            reverse(s.begin()+l,s.begin()+r);
-            l = r+1;
+            cout<<1<<endl;
+            continue;
         }
-        std::cout<<s<<std::endl;
+        int c = a-b;
+        if (b>c)
+            cout<<jie(a,b+1)/jie(c,1)<<endl;
+        else
+            cout<<jie(a,c+1)/jie(b,1)<<endl;
     }
 
     return 0;
