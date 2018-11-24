@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    ifstream cin("test.in");
+    //ifstream cin("test.in");
     int n;
     cin>>n;
     int data[n];
