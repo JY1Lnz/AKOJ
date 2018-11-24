@@ -11,10 +11,23 @@ int main()
         for (int i = 1;i<=n;i++)
             cin>>a[i]>>b[i];
         int sum = 0;
+        int w;
         for (int i = 0;i<=n;i++)
         {
             sum++;
-
+            w = b[i];
+            int j = i+1;
+            while(j <= n)
+            {
+                for (;j<=n;j++)
+                {
+                    if (a[j] == w)
+                    {
+                        sum++;
+                        w = b[j];
+                    }
+                }
+            }
         }
     }
 
