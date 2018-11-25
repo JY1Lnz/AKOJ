@@ -6,23 +6,12 @@ int main()
     int n;
     while(cin>>n)
     {
-        if (n == 1)
-            cout<<'A'<<endl;
-        else
+        string s = "A";
+        for (int i = 1;i<n;i++)
         {
-            int len = 2*(n-1);
-            char data[len];
-            for (int i = 0,j = 1;i<len;i+=2,j++)
-            {
-                data[i] = 'A';
-                data[i+1] = 'A'+j;
-            }
-            for (int i = 0;i<len;i++)
-                cout<<data[i];
-            for (int i = len-2;i>=0;i--)
-                cout<<data[i];
-            cout<<endl;
+            s += char(i+65)+s;
         }
+        cout<<s<<endl;
     }
 
     return 0;
