@@ -44,14 +44,21 @@ int main()
         swap(select[ad].value,select[i].value);
     }
     bool flag = true;
+
     for (int i = 0;i<n;i++)
     {
         cout<<bubble[i].c<<bubble[i].value<<' ';
         for (int j = 0;j<n;j++)
         {
-            if (que[j].value == bubble[i])
+            if (que[j].value == bubble[i].value);
         }
     }
+
+    for (int i = 0;i<n;i++)
+    {
+        ;
+    }
+
     cout<<endl;
     for (int i = 0;i<n;i++)
         cout<<select[i].c<<select[i].value<<' ';

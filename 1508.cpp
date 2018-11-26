@@ -3,48 +3,56 @@ using namespace std;
 
 int main()
 {
+    //ifstream cin ("test.in");
+    /*
     int n,m;
     while(cin>>n>>m)
     {
-    int all[100000] = {0},truth[100000] = {0};
-    int a;
-    for (int i = 0;i<n;i++)
-        cin>>all[i];
-    for (int i = 0;i<m;i++)
-        cin>>truth[i];
-    cin>>a;
-
-    for (int i = 0;i<n;i++)
-        for (int j = i+1;j<n;j++)
+        int a,k;
+        vector<int> due;
+        vector<int> real;
+        while(n--&&cin>>a)
+            due.push_back(a);
+        while(m--&&cin>>a)
+            real.push_back(a);
+        cin>>k;
+        sort(due.begin(),due.end());
+        sort(real.begin(),real.end());
+        while(real.size()&&due[0] == real[0])
         {
-            if (all[i] > all[j])
-            {
-                int t = all[j];
-                all[j] = all[i];
-                all[i] = t;
-            }
+            due.erase(due.begin());
+            real.erase(real.begin());
         }
-    for (int i = 0;i<m;i++)
-        for (int j = i+1;j<m;j++)
-            if (truth[i] > truth[j])
-            {
-                int t = truth[j];
-                truth[j] = truth[i];
-                truth[i] = t;
-            }
-
-
-    for (int i = 0;i<n;i++)
-    {
-        if (all[i] != truth[i])
-        {
-            if (all[i] == a)
-                cout<<"YES"<<endl;
-            else
-                cout<<"NO"<<endl;
-            break;
-        }
+        if (!real.size())
+            cout<<"YES\n";
+        else if (real[0] == k)
+            cout<<"YES\n";
+        else
+            cout<<"NO\n";
     }
+    */
+    int n,m;
+    while(cin>>n>>m)
+    {
+        int a,k;
+        map<int,bool> data;
+        while(n--&&cin>>a)
+            data[a] = false;
+        while(m--&&cin>>a)
+            data[a] = true;
+        cin>>k;
+        for (auto it = data.begin();it != data.end();it++)
+        {
+            if (!it -> second)
+            {
+                if (it->first == k)
+                    cout<<"YES\n";
+                else
+                    cout<<"NO\n";
+                break;
+            }
+        }
+
     }
 
     return 0;
