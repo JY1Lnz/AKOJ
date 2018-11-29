@@ -11,14 +11,14 @@ struct note
 
 int main()
 {
-
+    ifstream cin ("test.in");
     int n,op,start,over;
-    cin>>n>>op>>start>>over;
+    while(cin>>n>>op>>start>>over)
     {
     int flag = 0;
     int data[n+2][n+2] = {0};
     int book[n*n + 10] = {0};
-    struct note que[n*n+10];
+    queue<note> que;
 
     for (int i = 1;i<=n;i++)
         for (int j = 1;j<=n;j++)
@@ -36,28 +36,26 @@ int main()
             data[y][x] = 1;
     }
 
-    head = 1;
-    tail = 1;
-    que[tail].city = start;
-    que[tail].times = 0;
-    tail++;
+    note a = {start,0};
+    que.push(a);
     book[start] = 1;
 
     int cur;
-    while(head<tail)
+    while(!que.empty())
     {
-        cur = que[head].city;
+        a = que.front();
+        que.pop();
+        note nex;
         for (int j = 1;j<=n;j++)
         {
-            if (data[cur][j] != inf&&book[j] == 0)
+            if (data[a.city][j] != inf&&book[j] == 0)
             {
-                que[tail].city = j;
-                que[tail].times = que[head].times+1;
-                tail++;
+                nex = {j,a.times+1};
+                que.push(nex);
                 book[j] = 1;
             }
 
-            if (que[tail-1].city == over)
+            if (nex.city == over)
             {
                 flag = 1;
                 break;
@@ -65,10 +63,9 @@ int main()
         }
         if (flag == 1)
             break;
-        head++;
     }
     if (flag == 1)
-        cout<<que[tail-1].times<<endl;
+        cout<<que.front().times<<endl;
     else
         cout<<"Cannot reach"<<endl;
     }

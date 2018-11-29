@@ -1,42 +1,75 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-
-int main()
-{
-    //ifstream cin ("test.in");
-    int n,target[1010];
-    while(cin>>n)
-    {
-        int stack[1010],top = 0;
-        int A = 1,B = 1;
-        for (int i = 1;i<=n;i++)
-            cin>>target[i];
-        int ok = 1;
-        while(B <= n)
-        {
-            if (A == target[B])
-            {
-                A++;
-                B++;
-            }
-            else if (top && stack[top] == target[B])
-            {
-                top--;
-                B++;
-            }
-            else if (A<=n)
-                stack[++top] = A++;
-            else
-            {
-                ok = 0;
-                break;
-            }
-
-        }
-        printf("%s\n",ok?"yes":"no");
+int a[200][200];
+bool b[200][200];
+int main() {
+    ifstream cin ("test.in");
+  int m, n;
+  cin >> m >> n;
+  for (int i = 0; i < m; i++) {
+    for (int j = 0; j < n; j++) {
+      cin >> a[i][j];
     }
+  }
 
+  vector<int> v;
+  int s = n * m;
+  int i = 0, j = 0;
 
-    return 0;
+  while (s>0) {//cout<<"***"<<endl;
+    //об
+    while (i<m) {
+      if (b[i][j] == 0) {
+        b[i][j] = 1;
+       // cout<<a[i][j]<<" ";
+        v.push_back(a[i++][j]);
+        s--;
+      }
+      else
+        break;
+    }
+    j++;
+    i--;
+    // right
+    while (j < n) {
+      if (b[i][j] == 0) {
+        b[i][j] = 1;
+        v.push_back(a[i][j++]);
+        s--;
+      }
+      else
+        break;
+    }
+    i--;
+    j--;
+    // up
+    while (i >= 0) {
+      if (b[i][j] == 0) {
+        b[i][j] = 1;
+        v.push_back(a[i--][j]);
+        s--;
+      }
+      else
+        break;
+    }
+    i++;
+    j--;
+    // left
+    while (j >= 0) {
+      if (b[i][j] == 0) {
+        b[i][j] = 1;
+        v.push_back(a[i][j--]);
+        s--;
+      }
+      else
+        break;
+    }
+    i++;
+    j++;
+  }
+  cout<<v[0];
+  for (int i = 1; i < v.size(); i++) {
+    cout << " "<< v[i];
+  }
+  cout << endl;
 }
