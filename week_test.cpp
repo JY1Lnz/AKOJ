@@ -1,19 +1,29 @@
-#include<iostream>
-#include<set>
-#include<map>
-
+#include<bits/stdc++.h>
 using namespace std;
+
+int data[100] = {0,1,1};
+
+void fibo()
+{
+    for (int i = 3;i<100;i++)
+    {
+        int sum = data[i-1]+data[i-2];
+        sum %= 10;
+        data[i] = sum;
+    }
+}
 int main()
 {
-    multimap<string,int> data
+    fibo();
+    //for (int i = 0;i<100;i++)
+        //cout<<data[i]<<' ';
+    //cout<<endl<<data[39]<<endl;
+    long long a;
+    while(cin>>a)
     {
-        {"avc",2},
-        {"avc",4}
-    };
-    data.insert(pair<string,int>("cbc",1));
-    for (auto x = data.begin();x != data.end();x++)
-        cout<<x->first<<' '<<x->second<<endl;
-    auto range = data.equal_range("av");
-    for (auto it = range.first;it != range.second;it++)
-        cout<<it->first<<' '<<it->second<<endl;
+        cout<<data[a%60]<<endl;
+    }
+
+
+    return 0;
 }
