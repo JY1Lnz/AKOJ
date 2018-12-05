@@ -14,16 +14,8 @@ void fibo()
 }
 int main()
 {
-    fibo();
-    //for (int i = 0;i<100;i++)
-        //cout<<data[i]<<' ';
-    //cout<<endl<<data[39]<<endl;
-    long long a;
-    while(cin>>a)
-    {
-        cout<<data[a%60]<<endl;
-    }
-
+    string s = "abc";
+    cout<<find(s.begin(),s.end(),'d')-s.begin()<<endl;
 
     return 0;
 }
