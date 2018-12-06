@@ -1,35 +1,12 @@
-#include<bits/stdc++.h>
-
+#include <iostream>
+#include <algorithm>
 using namespace std;
-const int MAX_N = 20;
-int a[MAX_N];
-int n, k;
+int main()
+{
+    char c = 'A';
+    c = (c-'A'+21)%26+'A';
+    cout<<c<<endl;
 
-bool dfs(int i, int sum) {
-    if (i == n)
-        return sum == k;//寻找相等值
-    if (dfs(i + 1, sum))
-        return true;//寻找相等值
-    if (dfs(i + 1, sum + a[i]))
-        return true;//
-    return false;
+   return 0;
 }
 
-int main() {
-    while (~scanf("%d", &n)) {
-        int tot = 0;
-        for (int i = 0; i < n; i++) {
-            scanf("%d", &a[i]);
-            tot += a[i];
-        }
-        if (tot % 2 == 0) {
-            k = tot / 2;
-            if (dfs(0, 0))
-                printf("Of course,I can!\n");
-            else
-                printf("Sorry,I can't!\n");
-        } else
-            printf("Sorry,I can't!\n");
-    }
-    return 0;
-}
