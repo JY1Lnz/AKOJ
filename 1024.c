@@ -3,14 +3,14 @@ int main()
 {
     int n;
     scanf("%d",&n);
-    long long fac=1, s=0;//fac”√¿¥¥Ê¥¢Ω◊≥À£¨s”√¿¥¥Ê¥¢Ω◊≥À∫Õ°£
+    long long fac=1, s=0;//fac?????Ê¥¢????s?????Ê¥¢?????
     int i;
-    for(i = 1; i <= n; i ++)//—≠ª∑20¥Œ
+    for(i = 1; i <= n; i ++)//???20??
     {
-        fac*=i;//º∆À„Ω◊≥À
-        s+=fac;//¿€º”
+        fac*=i;//??????
+        s+=fac;//???
     }
-    printf("%lld\n", s);// ‰≥ˆΩ·π˚
+    printf("%lld\n", s);//??????
 
     return 0;
 }

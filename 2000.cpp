@@ -6,13 +6,20 @@ int sum = 0;
 int n,m;
 void dfs(int x,int y)
 {
-    if (x<0||x>=n||y<0||y>=m||data[x][y] == 0)
-        return;
+    int next[4][2] = {{0,1},{1,0},{0,-1},{-1,0}};
     data[x][y] = 0;
-    dfs(x,y+1);
-    dfs(x,y-1);
-    dfs(x+1,y);
-    dfs(x-1,y);
+    for (int i = 0;i<4;i++)
+    {
+        int tx = x+next[i][0];
+        int ty = y+next[i][1];
+        if (tx < 0||tx>=n||ty<0||ty>=m)
+            continue;
+        if (data[tx][ty] == 1)
+        {
+            data[tx][ty] = 0;
+            dfs(tx,ty);
+        }
+    }
 }
 
 int main()
@@ -33,7 +40,6 @@ int main()
             {
                 if (data[i][j] == 1)
                 {
-                    //cout<<i<<' '<<j<<endl;
                     sum++;
                     dfs(i,j);
                 }
