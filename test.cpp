@@ -4,15 +4,9 @@ using namespace std;
 
 int main()
 {
-    string s = "abcd";
-    istringstream iss(s);
-    vector<string> data;
-    for (int i = 0;i<s.length();i++)
-    {
-        string a(s,i,s.length());
-        data.push_back(a);
-        cout<<a<<endl;
-    }
+    char c = 'b';
+    char x = 'z'-('b'-'a');
+    cout<<x<<endl;
 
     return 0;
 }
