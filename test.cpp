@@ -4,9 +4,8 @@ using namespace std;
 
 int main()
 {
-    char c = 'b';
-    char x = 'z'-('b'-'a');
-    cout<<x<<endl;
+    vector<int> data;
+    data.p
 
     return 0;
 }
