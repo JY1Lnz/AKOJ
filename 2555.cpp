@@ -2,8 +2,8 @@
 using namespace std;
 //使用辅助数组记录对角线使用情况
 int maxn;
-int data[1000];
-int vis[3][1000] = {0};
+int data[1000000];
+int vis[3][1000010] = {0};
 int cnt = 0;
 void search_vis(int cur)
 {

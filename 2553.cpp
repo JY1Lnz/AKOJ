@@ -34,7 +34,7 @@ int main()
         for (int i = 1;i<s.length();i++)
         {
             now += s[i];
-            if (ok(maxn,now))
+            if (comp(now,maxn))
             {
                 cout<<","<<now;
                 maxn = now;
@@ -48,4 +48,3 @@ int main()
 
     return 0;
 }
-
